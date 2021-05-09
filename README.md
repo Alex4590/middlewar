@@ -1,3 +1,5 @@
-# middlewar
+# Middlewar
 
-Docker run - docker-compose up --build
+## Docker run
+
+docker-compose up --build

@@ -2,6 +2,7 @@ version: '3'
 
 services:
     web:
+        container_name: web
         build: ./web
         environment: 
             - APACHE_RUN_USER=www-data
@@ -12,6 +13,7 @@ services:
         working_dir: ${APP_PATH_CONTAINER}
 
     db:
+        container_name: mariadb
         image: mariadb
         restart: always
         environment:
@@ -20,12 +22,14 @@ services:
             - ${DB_PATH_HOST}:/var/lib/mysql
 
     adminer:
+        container_name: adminer        
         image: adminer
         restart: always
         ports:
             - 6080:8080
 
     composer:
+        container_name: composer   
         image: composer:1.6
         volumes: 
             - ${APP_PATH_HOST}:${APP_PATH_CONTAINER}
